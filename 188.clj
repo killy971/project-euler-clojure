@@ -6,5 +6,3 @@
       (recur (if (odd? exp) (mod (* r b) m) r)
              (mod (expt b 2) m)
              (bit-shift-right exp 1)))))
-
-

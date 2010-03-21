@@ -1,15 +1,9 @@
 ; Find the greatest product of five consecutive digits in the 1000-digit number
 
-(defn digits
-  [x]
-  (loop [n x, dseq []]
-    (if (< n 10)
-      (cons n dseq)
-      (recur (quot n 10) (cons (rem n 10) dseq)))))
+(load-file "utils.clj")
 
-(defn max-product
-  [n]
-  (let [d (digits n)]
+(defn max-product [n]
+  (let [d (to-d n)]
     (loop [five (take 5 d), others (drop 5 d), max 0]
       (let [p (reduce * five)
             m (if (> p max) p max)]

@@ -1,6 +1,4 @@
-(defn fact [n]
-  (loop [i n, f 1]
-    (if (zero? i) f (recur (dec i) (* f i)))))
+(load-file "utils.clj")
 
 (defn digits-fact [number]
   (loop [n number, res 0]

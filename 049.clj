@@ -1,18 +1,10 @@
 (use 'de.tsdh.math.primes)
 
 (load-file "sieve.clj")
+(load-file "utils.clj")
 
 (def sieve-primes
   (drop-while #(< % 1234) (sieve 3216)))
-
-(defn to-n [digits]
-  (reduce + (map * (reverse digits) (iterate #(* 10 %) 1))))
-
-(defn to-d [number]
-  (loop [n number, digit-seq []]
-    (if (< n 10)
-      (cons n digit-seq)
-        (recur (quot n 10) (cons (rem n 10) digit-seq)))))
 
 (defn is-perm? [digits n]
   (= (sort digits) (sort (to-d n))))

@@ -1,10 +1,6 @@
 (set! *warn-on-reflection* true)
 
-(defn to-d [number]
-  (loop [n number, dseq []]
-    (if (< n 10)
-      (cons n dseq)
-      (recur (quot n 10) (cons (rem n 10) dseq)))))
+(load-file "utils.clj")
 
 (defn to-key [number]
   (str (sort (to-d number))))

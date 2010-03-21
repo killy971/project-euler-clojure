@@ -2,24 +2,8 @@
 ; from the product of two 2-digit numbers is 9009 = 91 × 99.
 ; Find the largest palindrome made from the product of two 3-digit numbers.
 
-(defn digits
-  [x] (loop [n x, dseq []]
-    (if (< n 10)
-      (cons n dseq)
-      (recur (quot n 10) (cons (rem n 10) dseq)))))
+(load-file "utils.clj")
 
-(defn split-half [l]
-  (let [size (count l)
-        half-size (quot size 2)]
-    (let [first-half (take half-size l)]
-      (if (even? size)
-        [first-half (drop half-size l)]
-        [first-half (drop (inc half-size) l)]))))
-
-(defn palindromic?  [x]
-  (let [half (split-half (digits x))]
-    (= (first half) (reverse (second half)))))
-  
 (defn three-digit-product-biggest-palindrome []
   (loop [a 100, b 100, max 0]
     (let [n (* a b)]

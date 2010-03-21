@@ -1,7 +1,6 @@
-(use 'clojure.contrib.combinatorics)
+(load-file "utils.clj")
 
-(defn to-n [digits]
-  (reduce + (map * (reverse digits) (iterate #(* 10 %) 1))))
+(use 'clojure.contrib.combinatorics)
 
 (defn has-p? [mult prod]
   (let [m1 (to-n (take 1 mult)) m4 (to-n (drop 1 mult))

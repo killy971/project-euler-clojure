@@ -1,8 +1,4 @@
-(defn to-d [number]
-  (loop [n number, digit-seq []]
-    (if (< n 10)
-      (cons n digit-seq)
-      (recur (quot n 10) (cons (rem n 10) digit-seq)))))
+(load-file "utils.clj")
 
 (def e-seq
   (map #(if (zero? (rem % 3)) (* 2 (/ % 3)) 1) (iterate inc 2)))

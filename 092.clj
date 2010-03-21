@@ -1,12 +1,8 @@
-(defn digits [x]
-  (loop [n x, dseq []]
-    (if (< n 10)
-      (cons n dseq)
-        (recur (quot n 10) (cons (rem n 10) dseq)))))
+(load-file "utils.clj")
 
 (defn ends-by [n]
   (loop [i n]
-    (let [next (reduce + (map #(* % %) (digits i)))]
+    (let [next (reduce + (map #(* % %) (to-d i)))]
       (cond
         (= next 1) 0
         (= next 89) 1
