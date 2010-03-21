@@ -1,3 +1,5 @@
+(set! *warn-on-reflection* true)
+
 (load-file "sieve.clj")
 
 (def primes-seq (sieve 10000000))
