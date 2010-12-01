@@ -15,8 +15,8 @@
     (print (format "problem %s: " number))
     (println (eval (list problem)))))
 
-(defn run-all []
-  (doseq [n *all-problems-list*]
-    (time (run n))))
-
-(run-all)
+(let [problem (second *command-line-args*)]
+  (if (nil? problem)
+    (doseq [n *all-problems-list*]
+      (time (run n)))
+    (time (run (Integer/parseInt problem)))))
