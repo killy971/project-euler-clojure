@@ -90,3 +90,17 @@
                  (if (zero? (aget a i))
                    (conj result i)
                    result)))))))
+
+; --------------------------------------------------------------------------- ;
+
+(defn index-of [keep-func, coll]
+  (loop [i 0
+         a (first coll)
+         l (rest coll)
+         keep-i i]
+    (if (empty? l)
+      keep-i
+      (let [keep (keep-func a (first l))]
+        (recur
+          (inc i) (if keep a (first l)) (rest l) (if keep keep-i (inc i)))))))
+
