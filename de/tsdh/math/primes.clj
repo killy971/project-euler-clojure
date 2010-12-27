@@ -1,6 +1,5 @@
 (ns de.tsdh.math.primes
   (:use [clojure.contrib [math :only [expt]]
-         [test-is :only [deftest is]]
          [def :only [defvar defvar-]]]))
 
 (defvar *pseudo-accuracy* 4
@@ -178,7 +177,7 @@ see *pseudo-accuracy*."
    7841   7853   7867   7873   7877   7879   7883   7901   7907   7919)
  "The first 1000 prime numbers.  Used for testing.")
 
-(deftest test-prime-fns
+(comment deftest test-prime-fns
   (loop [a (doall (take 1000 (primes))) 
          b (doall (take 1000 first-1000-primes))]
     (when (and (empty? a) (empty? b))
