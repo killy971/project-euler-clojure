@@ -104,3 +104,8 @@
         (recur
           (inc i) (if keep a (first l)) (rest l) (if keep keep-i (inc i)))))))
 
+
+; --------------------------------------------------------------------------- ;
+
+(defmacro caseify [f n]
+  `(fn [x#] (case x# ~@(mapcat (juxt identity (resolve f)) (range n)))))
