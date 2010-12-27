@@ -1,26 +1,16 @@
-(ns net.projecteuler.074)
+(ns net.projecteuler.074
+  (:use [net.projecteuler.utils :only [fact caseify]]))
 
-(defn fact [digit]
-  (case digit
-    0 1
-    1 1
-    2 2
-    3 6
-    4 24
-    5 120
-    6 720
-    7 5040
-    8 40320
-    9 362880))
+(def digit-fact (caseify fact 10))
 
 (defn digits-fact [number]
   (loop [n number, res 0]
     (if (< n 10)
-      (+ (fact n) res)
+      (+ (digit-fact n) res)
       (recur (quot n 10) (+ (fact (rem n 10)) res)))))
 
 (defn chain-length [start]
-  (loop [n start, chain (hash-set)]
+  (loop [n start, chain #{}]
     (if (contains? chain n)
       (count chain)
       (recur (digits-fact n) (conj chain n)))))
