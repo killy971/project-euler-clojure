@@ -9,4 +9,4 @@
     (+ 2 (reduce #(/ (+ %1 %2)) 0 c-seq))))
 
 (defn problem-065 []
-  (reduce + (to-d (.numerator (e-frac 100)))))
+  (reduce + (to-d (numerator (e-frac 100)))))

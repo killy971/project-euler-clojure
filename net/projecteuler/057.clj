@@ -9,8 +9,8 @@
   (loop [n x, d-count 1]
     (if (< n 10) d-count (recur (quot n 10) (inc d-count)))))
 
-(defn more-numer-digits-than-denom [#^clojure.lang.Ratio x]
-  (> (digit-count (.numerator x)) (digit-count (.denominator x))))
+(defn more-numer-digits-than-denom [x]
+  (> (digit-count (numerator x)) (digit-count (denominator x))))
 
 (defn problem-057 []
   (count (filter more-numer-digits-than-denom (root-exp-list 1000))))
