@@ -37,6 +37,13 @@
         [first-half (drop half-size l)]
         [first-half (drop (inc half-size) l)]))))
 
+(defn tails [coll]
+  (take-while seq (iterate rest coll)))
+
+(defn clump [n coll]
+  (drop-last (dec n) (map #(take n %) (tails coll))))
+
+
 (defn palindromic?  [x]
   (let [half (split-half (to-d x))]
     (= (first half) (reverse (second half)))))
