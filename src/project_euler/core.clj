@@ -4,10 +4,10 @@
 
 (defn run-problem [n]
   (let [number (.format (new java.text.DecimalFormat "000") n)
-        solution (symbol (str "solution-" number))]
+        solution-function (symbol (str "solution-" number))]
     (use (vec (list (symbol (str "project-euler.problem-" number))
-                    :only (list solution))))
-    (eval (list solution))))
+                    :only (list solution-function))))
+    (eval (list solution-function))))
 
 (defn -main
   "Solution runner"
