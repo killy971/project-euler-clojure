@@ -23,7 +23,7 @@
            prime (first primes), p-list (rest primes)]
       (let [cmp (compare remdr prime)]
         (cond
-          (= 0 cmp) true
+          (zero? cmp) true
           (and (empty? p-list) (empty? r-list)) false
           (= 1 cmp) (if (empty? r-list) false
                       (recur (first r-list) (rest r-list) prime p-list))
@@ -31,5 +31,4 @@
                      (recur remdr r-list (first p-list) (rest p-list))))))))
 
 (defn solution-046 []
-  (first (filter #(not (written-as-sum-of-prime-and-twice-square? %))
-                 (composite-odds 10000))))
+  (first (remove written-as-sum-of-prime-and-twice-square? (composite-odds 10000))))

@@ -10,11 +10,11 @@
         :default (do (next-f sum array) (recur (first p-seq) (rest p-seq)))))))
 
 (defn for-c [primes, max-n, p-sum, array]
-  (for-p primes max-n p-sum array #(* % (* % (* % %)))
+  (for-p primes max-n p-sum array #(* % % % %)
          (fn [sum, arr] (do (aset-int arr sum 1) arr))))
 
 (defn for-b [primes, max-n, p-sum, array]
-  (for-p primes max-n p-sum array #(* % (* % %))
+  (for-p primes max-n p-sum array #(* % % %)
          (fn [sum, arr] (for-c primes max-n sum arr))))
 
 (defn for-a [primes, max-n, p-sum, array]

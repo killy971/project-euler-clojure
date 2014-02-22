@@ -2,7 +2,7 @@
 
 (defn update-occ [occ-vect size-list]
   (if (empty? size-list) occ-vect
-  (reduce #(assoc %1 %2 (inc (get %1 %2))) occ-vect size-list)))
+  (reduce #(update-in %1 [%2] inc) occ-vect size-list)))
 
 (defn squares [start-side max-tiles occ-vect]
   (loop [size-list (list (* 4 (dec start-side)))

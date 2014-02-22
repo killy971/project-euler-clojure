@@ -24,7 +24,7 @@
 (defn pandigital? [x]
   (let [d-list (sort (to-d x))]
     (and
-      (< 0 (first d-list))
+      (pos? (first d-list))
       (= d-list (range 1 (inc (count d-list)))))))
 
 ; --------------------------------------------------------------------------- ;
