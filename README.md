@@ -21,4 +21,4 @@ $ lein run 65
 
 Solutions for other problems implemented in different languages are availabe in the following repository: http://github.com/guillaume-nargeot/project-euler
 
-<img src="http://projecteuler.net/profile/killy971.png"/>
+<img src="https://projecteuler.net/profile/killy971.png"/>
