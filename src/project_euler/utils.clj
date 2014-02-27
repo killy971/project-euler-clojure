@@ -43,7 +43,6 @@
 (defn clump [n coll]
   (drop-last (dec n) (map #(take n %) (tails coll))))
 
-
 (defn palindromic?  [x]
   (let [half (split-half (to-d x))]
     (= (first half) (reverse (second half)))))
@@ -100,6 +99,9 @@
 
 ; --------------------------------------------------------------------------- ;
 
+(defn index-of-max [coll]
+  (first (apply (partial max-key second) (map-indexed vector coll))))
+
 (defn index-of [keep-func, coll]
   (loop [i 0
          a (first coll)
@@ -110,7 +112,6 @@
       (let [keep (keep-func a (first l))]
         (recur
           (inc i) (if keep a (first l)) (rest l) (if keep keep-i (inc i)))))))
-
 
 ; --------------------------------------------------------------------------- ;
 
