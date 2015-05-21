@@ -4,7 +4,7 @@
   :license {:name "BSD3"
             :url "http://opensource.org/licenses/BSD-3-Clause"}
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/math.combinatorics "0.0.8"]
+                 [org.clojure/math.combinatorics "0.1.1"]
                  [org.clojure/math.numeric-tower "0.0.4"]]
   :main ^:skip-aot project-euler.core
   :target-path "target/%s"
